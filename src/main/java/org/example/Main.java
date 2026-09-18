@@ -2,6 +2,9 @@ package org.example;
 
 import org.example.classes.*;
 
+import java.io.FileReader;
+import java.io.FileWriter;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
@@ -38,26 +41,35 @@ public class Main {
         Entreprise entr = new Entreprise("alti", 1);
 
 
+//        try{
+//
+//            entr.addEmployee(e1);
+//            entr.addEmployee(e3);
+//            entr.addEmployee(e2);
+//            entr.addEmployee(e5);
+//
+//
+//        }catch (EntrepriseSatureDeCommerciauxException ex){
+//            System.out.println("more than 3 commerciaux oops");
+//
+//            Entreprise erroredEntreprise = ex.getEntreprise();
+//
+//            for(Employee employee : erroredEntreprise.employees){
+//                System.out.println(employee);
+//
+//            }
+
         try{
-
-            entr.addEmployee(e1);
-            entr.addEmployee(e3);
-            entr.addEmployee(e2);
-            entr.addEmployee(e5);
+//        FileWriter fw = new FileWriter("saved commerciaux", true);
+//        e1.enregistreToi(fw);
+//        fw.close();
 
 
-        }catch (EntrepriseSatureDeCommerciauxException ex){
-            System.out.println("more than 3 commerciaux oops");
-
-            Entreprise erroredEntreprise = ex.getEntreprise();
-
-            for(Employee employee : erroredEntreprise.employees){
-                System.out.println(employee);
-
-            }
-
-
-        }
+            FileReader fr = new FileReader("saved commerciaux");
+            Commercial.lire(fr);
+        }catch(Exception ex){
+            ex.printStackTrace();
+    }
 
 
     }
