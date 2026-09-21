@@ -2,6 +2,7 @@ package org.example;
 
 import org.example.classes.*;
 
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 
@@ -60,13 +61,14 @@ public class Main {
 //            }
 
         try{
-//        FileWriter fw = new FileWriter("saved commerciaux", true);
-//        e1.enregistreToi(fw);
-//        fw.close();
+        FileOutputStream fw = new FileOutputStream("saved commerciaux.txt", true);
+        e1.enregistreToi(fw);
+        fw.close();
+//            FileReader fr = new FileReader("saved commerciaux");
+//
+//            Commercial.lire(fr);
+//            fr.close();
 
-
-            FileReader fr = new FileReader("saved commerciaux");
-            Commercial.lire(fr);
         }catch(Exception ex){
             ex.printStackTrace();
     }

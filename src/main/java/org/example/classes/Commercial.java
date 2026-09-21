@@ -1,9 +1,6 @@
 package org.example.classes;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.PrintWriter;
+import java.io.*;
 
 public class Commercial extends Employee{
 
@@ -40,16 +37,21 @@ public class Commercial extends Employee{
     }
 
 
-    public void enregistreToi( FileWriter fw){
-       PrintWriter out  = new PrintWriter(fw);
-       out.println(
-               this.getName() + "|"
-                       + this.fixedSalary + "|"
-                       + this.turnover
+    public void enregistreToi( FileOutputStream fos) throws Exception{
+//       PrintWriter out  = new PrintWriter(fw);
+        DataOutputStream dos = new DataOutputStream(fos);
+
+        dos.writeUTF(getName());
+        dos.writeUTF("|");
+        dos.writeDouble(this.fixedSalary);
+        dos.writeUTF("|");
+        dos.writeDouble(this.turnover);
+
+        dos.flush();
 
 
 
-       );
+
 
 
 
